@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Class</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="media/body/header/estrella.png" type="image/png" />
+
+</head>
+
+<body>
+  <section class="a">
+
+    <header class="header" id="header">
+      <div class="header-left">
+        <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">
+          <img src="media/body/header/menu2.png" alt="Menu" />
+        </button>
+      </div>
+      <div class="header-center">
+        <div class="logo">
+          <img src="media/body/header/logo.png" alt="Logo" />
+        </div>
+          <form class="buscador" onsubmit="buscar(); return false;">
+            <input type="text" name="Nombre" id="nombre" placeholder="Ingrese nombre del producto" />
+            <button type="submit">🔍︎</button>
+          </form>
+      </div>
+      <div class="header-right">
+        <div class="btn-carrito-header" onclick="verFormularioFavorito()">
+          <img src="media/body/header/favorito.png" alt="Me Gusta">
+          <span class="contador" id="contadorFavorito">0</span>
+          <div id="favorito" class="favorito">
+            <div class="popup-titulo">Favoritos</div>
+            <div id="listaFavorito"></div>
+            <button id="btnVaciarFavorito" class="btn-vaciar">Vaciar favoritos</button>
+          </div>
+        </div>
+        <div class="btn-carrito-header" onclick="verFormulario()">
+          <img src="media/body/header/carrito-de-compras.png" alt="Carrito">
+          <span class="contador" id="contadorCarrito">0</span>
+          <div id="miniCarrito" class="mini-carrito">
+            <div class="popup-titulo">Carrito</div>
+            <div id="listaMiniCarrito"></div>
+            <button id="btnVaciarCarrito" class="btn-vaciar">Vaciar carrito</button>
+          </div>
+        </div>
+      
+      </div>
+    </header>
+
+    
+    <nav class="menu-drawer" id="menuDrawer">
+      <button class="close-drawer" onclick="toggleMenu()">×</button>
+      <form class="buscador-drawer" onsubmit="buscar(); return false;">
+          <input type="text" name="Nombre" id="nombre" placeholder="Buscar producto..." />
+          <button type="submit">🔍︎</button>
+        </form>
+        <ul>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+        </ul>
+        <div class="drawer-filtros">
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca-movil')">Marca</h3>
+            <div class="filtro-opciones" id="opciones-marca-movil">
+            <label><input type="checkbox" class="filtro-marca" value="Nike" onchange="filtroMarca(this.value, this.checked)"> Nike</label>
+            <label><input type="checkbox" class="filtro-marca" value="Adidas" onchange="filtroMarca(this.value, this.checked)"> Adidas</label>
+            <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
+            <label><input type="checkbox" class="filtro-marca" value="Puma" onchange="filtroMarca(this.value, this.checked)"> Puma</label>
+            <label><input type="checkbox" class="filtro-marca" value="Vans" onchange="filtroMarca(this.value, this.checked)"> Vans</label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color-movil')">Color</h3>
+            <div class="filtro-opciones" id="opciones-color-movil">
+            <label><input type="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
+            <label><input type="checkbox" class="filtro-color" value="Blanco" onchange="filtroColor(this.value, this.checked)"> Blanco</label>
+            <label><input type="checkbox" class="filtro-color" value="Crema" onchange="filtroColor(this.value, this.checked)"> Crema</label>
+            <label><input type="checkbox" class="filtro-color" value="Rojo" onchange="filtroColor(this.value, this.checked)"> Rojo</label>
+            <label><input type="checkbox" class="filtro-color" value="Azul" onchange="filtroColor(this.value, this.checked)"> Azul</label>
+            <label><input type="checkbox" class="filtro-color" value="Celeste" onchange="filtroColor(this.value, this.checked)"> Celeste</label>
+            <label><input type="checkbox" class="filtro-color" value="Marron" onchange="filtroColor(this.value, this.checked)"> Marron</label>
+            <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio-movil')">Precio</h3>
+            <div class="filtro-opciones" id="opciones-precio-movil">
+            <label>Min: <input type="number" id="precioMin-movil" oninput="aplicarFiltros()" ></label>
+            <label>Max: <input type="number" id="precioMax-movil" oninput="aplicarFiltros()" ></label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar-movil')">Ordenar</h3>
+            <div class="filtro-opciones" id="opciones-ordenar-movil">
+            <label><input type="radio" name="ordenar-movil" id="precioDesc-movil" onclick="ordenamiento('precioDesc')"> Precio </label>
+            <label><input type="radio" name="ordenar-movil" id="precioAsc-movil" onclick="ordenamiento('precioAsc')"> Precio ↓</label>
+           
+            <label><input type="radio" name="ordenar-movil" id="nombreAZ-movil" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
+            <label><input type="radio" name="ordenar-movil" id="nombreZA-movil" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
+            </div>
+          </section>
+          <div class="btn-limpiar-filtros">
+            <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
+          </div>
+        </div>
+    </nav>
+
+    <main class="main-flex">
+      <div class="elementos" id="elementos">
+        <section class="filtro-grupo">
+          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca')">Marca</h3>
+          <div class="filtro-opciones" id="opciones-marca">
+            <label><input type="checkbox" class="filtro-marca" value="Nike" onchange="filtroMarca(this.value, this.checked)"> Nike</label>
+            <label><input type="checkbox" class="filtro-marca" value="Adidas" onchange="filtroMarca(this.value, this.checked)"> Adidas</label>
+            <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
+            <label><input type="checkbox" class="filtro-marca" value="Puma" onchange="filtroMarca(this.value, this.checked)"> Puma</label>
+            <label><input type="checkbox" class="filtro-marca" value="Vans" onchange="filtroMarca(this.value, this.checked)"> Vans</label>
+          </div>
+        </section>
+        <section class="filtro-grupo">
+          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color')">Color</h3>
+          <div class="filtro-opciones" id="opciones-color">
+            <label><input type="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
+            <label><input type="checkbox" class="filtro-color" value="Blanco" onchange="filtroColor(this.value, this.checked)"> Blanco</label>
+            <label><input type="checkbox" class="filtro-color" value="Crema" onchange="filtroColor(this.value, this.checked)"> Crema</label>
+            <label><input type="checkbox" class="filtro-color" value="Rojo" onchange="filtroColor(this.value, this.checked)"> Rojo</label>
+            <label><input type="checkbox" class="filtro-color" value="Azul" onchange="filtroColor(this.value, this.checked)"> Azul</label>
+            <label><input type="checkbox" class="filtro-color" value="Celeste" onchange="filtroColor(this.value, this.checked)"> Celeste</label>
+            <label><input type="checkbox" class="filtro-color" value="Marron" onchange="filtroColor(this.value, this.checked)"> Marron</label>
+            <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
+          </div>
+        </section>
+        <section class="filtro-grupo">
+          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio')">Precio</h3>
+          <div class="filtro-opciones" id="opciones-precio">
+            <label>Min: <input type="number" id="precioMin" oninput="aplicarFiltros()" ></label>
+            <label>Max: <input type="number" id="precioMax" oninput="aplicarFiltros()" ></label>
+          </div>
+        </section>
+        <section class="filtro-grupo">
+          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar')">Ordenar</h3>
+          <div class="filtro-opciones" id="opciones-ordenar">
+            <label><input type="radio" name="ordenar" id="precioAsc" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
+            <label><input type="radio" name="ordenar" id="precioDesc" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
+            <label><input type="radio" name="ordenar" id="nombreAZ" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
+            <label><input type="radio" name="ordenar" id="nombreZA" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
+          </div>
+        </section>
+        <div class="btn-limpiar-filtros">
+          <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
+        </div>
+      </div>
+      <div class="contenedor"></div>
+    </main>
+
+    <!-- Sección Nosotros -->
+    <section class="nosotros">
+      <div class="nosotros-contenido">
+        <div class="nosotros-img">
+          <img src="https://via.placeholder.com/320x200?text=Foto+del+Grupo" alt="Foto del grupo Urban Class" />
+        </div>
+        <div class="nosotros-texto">
+          <h2>Sobre Nosotros</h2>
+          <p>
+            Urban Class nació de la pasión compartida por la cultura urbana y el deseo de acercar las mejores zapatillas a todos los rincones del país. Somos un grupo de amigos que decidió transformar su amor por el streetwear en una tienda online diferente, donde la calidad, la atención y la autenticidad son lo más importante.<br><br>
+            <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum, urna at cursus dictum, enim urna facilisis enim, nec cursus enim enim nec enim. Suspendisse potenti. Etiam euismod, justo at facilisis cursus, enim urna facilisis enim, nec cursus enim enim nec enim.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-nuevo">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>Urban Class</h3>
+          <p>Tu destino para las mejores zapatillas urbanas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="#">Hombre</a></li>
+            <li><a href="#">Mujer</a></li>
+            <li><a href="#">Niños</a></li>
+            <li><a href="#">Ofertas</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ayuda</h4>
+          <ul>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <div class="footer-social">
+           
+            <a href="#" aria-label="Instagram" target="_blank"><img src="media/body/footer/instagram.png" alt="Instagram" width="24" height="24"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        © 2025 Urban Class. Todos los derechos reservados.
+      </div>
+    </footer>
+
+  </section>
+  <a href="#header" class="btn-flotante" aria-label="Ir arriba">
+    &#8679;
+  </a>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
