@@ -1061,3 +1061,78 @@ main {
   object-fit: contain;
 }
 
+/* --- Responsive para el slider --- */
+@media (max-width: 900px) {
+  .slider-simple {
+    margin: 20px auto 10px 0;
+    max-width: 100vw;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .slider-simple-inner {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .slider-simple {
+    margin: 10px 0 10px 0;
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .slider-simple-inner {
+    gap: 8px;
+  }
+  .slide-simple {
+    min-width: 160px;
+    max-width: 90vw;
+    height: auto;
+    padding: 8px 2px 8px 2px;
+  }
+  .slide-simple .img-container {
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-simple {
+    min-width: 140px;
+    max-width: 92vw;
+    font-size: 12px;
+    padding: 6px 2px 8px 2px;
+    height: auto;
+    border-radius: 12px;
+  }
+  .slide-simple .img-container {
+    height: 70px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+  }
+  .slide-simple h3 {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .slide-simple .precio {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .slide-simple p {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
+  .slide-simple .btn-carrito {
+    font-size: 12px;
+    padding: 6px 0;
+    width: 95%;
+    border-radius: 8px;
+  }
+  .slide-simple .btn-like {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    top: 4px;
+    right: 4px;
+  }
+}
+

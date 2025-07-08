@@ -557,4 +557,78 @@ body {
   }
 }
 
+/* --- Sección Nuestro empaquetado --- */
+.cajas {
+  background: #372d28;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(61,50,44,0.10);
+  padding: 32px 24px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+  border: 2px solid #654534;
+}
+
+.cajas h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #D9B26E;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px #3D322C44;
+}
+
+.caja {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.caja-img-hover {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 8px rgba(217,178,110,0.15);
+  border: 2px solid #D9B26E;
+  background: #3D322C;
+  cursor: pointer;
+}
+
+.caja-img-hover img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  transition: opacity 0.4s;
+}
+
+.caja-img-hover .img-primaria {
+  opacity: 1;
+  z-index: 2;
+}
+
+.caja-img-hover .img-secundaria {
+  opacity: 0;
+  z-index: 3;
+}
+
+.caja-img-hover:hover .img-primaria {
+  opacity: 0;
+}
+
+.caja-img-hover:hover .img-secundaria {
+  opacity: 1;
+}
+
+.cajas p {
+  color: #F8EBC1;
+  font-size: 1.05rem;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
 
