@@ -816,7 +816,26 @@ main {
     display: block !important;
   }
   
- 
+  .menu-drawer .drawer-filtros,
+  .menu-drawer .btn-limpiar-filtros {
+    display: none !important;
+  }
+  
+  .menu-drawer ul {
+    display: block;
+  }
+  
+  .elementos {
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    width: 250px;
+    background: #372d28;
+    z-index: 10;
+    transform: none;
+    height: auto;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
 }
 
 @media (max-width: 900px) {
