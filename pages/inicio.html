@@ -2,57 +2,47 @@
 <html lang="en">
 
 <head>
-  <!-- Configuración básica del documento -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urban Class</title>
-  <!-- Enlaces a recursos externos -->
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../media/body/header/estrella.png" type="image/png" />
 
 </head>
 
 <body>
-  <!-- Contenedor principal de la página -->
   <section class="a">
 
-    <!-- Encabezado de la página -->
     <header class="header" id="header">
-      <!-- Botón de menú móvil -->
       <div class="header-left">
         <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">
           <img src="../media/body/header/menu2.png" alt="Menu" />
         </button>
       </div>
-      <!-- Centro del header con logo y buscador -->
       <div class="header-center">
         <div class="logo">
           <img src="../media/body/header/logo.png" alt="Logo" />
         </div>
-        <!-- Formulario de búsqueda -->
-        <form class="buscador" onsubmit="buscar(); return false;">
-          <input type="text" name="Nombre" id="nombre" placeholder="Ingrese nombre del producto" />
-          <button type="submit">🔍︎</button>
-        </form>
+          <form class="buscador" onsubmit="buscar(); return false;">
+            <input type="text" name="Nombre" id="nombre" placeholder="Ingrese nombre del producto" />
+            <button type="submit">🔍︎</button>
+          </form>
       </div>
-      <!-- Derecha del header con botones de favoritos y carrito -->
       <div class="header-right">
-        <!-- Botón de favoritos con contador -->
         <div class="btn-carrito-header" onclick="verFormularioFavorito()">
-          <img src="../media/body/header/favorito.png" alt="Me Gusta">
+          <img src="../media/body/header/favorito.png" alt="Me Gusta" style="filter: invert();">
           <span class="contador" id="contadorFavorito">0</span>
-          <!-- Dropdown de favoritos -->
           <div id="favorito" class="favorito">
+            <div class="popup-titulo">Favoritos</div>
             <div id="listaFavorito"></div>
             <button id="btnVaciarFavorito" class="btn-vaciar">Vaciar favoritos</button>
           </div>
         </div>
-        <!-- Botón de carrito con contador -->
         <div class="btn-carrito-header" onclick="verFormulario()">
-          <img src="../media/body/header/carrito-de-compras.png" alt="Carrito">
+          <img src="../media/body/header/carrito-de-compras.png" alt="Carrito" style="filter: invert();">
           <span class="contador" id="contadorCarrito">0</span>
-          <!-- Dropdown del carrito -->
           <div id="miniCarrito" class="mini-carrito">
+            <div class="popup-titulo">Carrito</div>
             <div id="listaMiniCarrito"></div>
             <button id="btnVaciarCarrito" class="btn-vaciar">Vaciar carrito</button>
           </div>
@@ -61,44 +51,33 @@
       </div>
     </header>
 
-    <!-- Menú lateral móvil (drawer) -->
+    
     <nav class="menu-drawer" id="menuDrawer">
-      <!-- Botón para cerrar el menú -->
       <button class="close-drawer" onclick="toggleMenu()">×</button>
-      <!-- Buscador del menú móvil -->
       <form class="buscador-drawer" onsubmit="buscar(); return false;">
-        <input type="text" name="Nombre" id="nombre" placeholder="Buscar producto..." />
-        <button type="submit">🔍︎</button>
-      </form>
-      <!-- Enlaces de navegación -->
-      <ul>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="../index.html">Inicio</a></li>
-      </ul>
-      <!-- Filtros del menú móvil -->
-      <div class="drawer-filtros">
-        <!-- Filtro por marca -->
-        <section class="filtro-grupo">
-          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca-movil')">Marca</h3>
-          <div class="filtro-opciones" id="opciones-marca-movil">
+          <input type="text" name="Nombre" id="nombre" placeholder="Buscar producto..." />
+          <button type="submit">🔍︎</button>
+        </form>
+        <ul>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="../index.html">Inicio</a></li>
+        </ul>
+        <div class="drawer-filtros">
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca-movil')">Marca</h3>
+            <div class="filtro-opciones" id="opciones-marca-movil">
             <label><input type="checkbox" class="filtro-marca" value="Nike" onchange="filtroMarca(this.value, this.checked)"> Nike</label>
             <label><input type="checkbox" class="filtro-marca" value="Adidas" onchange="filtroMarca(this.value, this.checked)"> Adidas</label>
             <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
             <label><input type="checkbox" class="filtro-marca" value="Puma" onchange="filtroMarca(this.value, this.checked)"> Puma</label>
             <label><input type="checkbox" class="filtro-marca" value="Vans" onchange="filtroMarca(this.value, this.checked)"> Vans</label>
-            <label><input type="checkbox" class="filtro-marca" value="DC" onchange="filtroMarca(this.value, this.checked)"> DC</label>
-            <label><input type="checkbox" class="filtro-marca" value="47Street" onchange="filtroMarca(this.value, this.checked)"> 47 Street</label>
-            <label><input type="checkbox" class="filtro-marca" value="Reebok" onchange="filtroMarca(this.value, this.checked)"> Reebok</label>
-            <label><input type="checkbox" class="filtro-marca" value="Dvs" onchange="filtroMarca(this.value, this.checked)"> Dvs</label>
-            <label><input type="checkbox" class="filtro-marca" value="Rusty" onchange="filtroMarca(this.value, this.checked)"> Rusty</label>
-          </div>
-        </section>
-        <!-- Filtro por color -->
-        <section class="filtro-grupo">
-          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color-movil')">Color</h3>
-          <div class="filtro-opciones" id="opciones-color-movil">
-            <label><input type="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color-movil')">Color</h3>
+            <div class="filtro-opciones" id="opciones-color-movil">
+            <label><input typye="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
             <label><input type="checkbox" class="filtro-color" value="Blanco" onchange="filtroColor(this.value, this.checked)"> Blanco</label>
             <label><input type="checkbox" class="filtro-color" value="Crema" onchange="filtroColor(this.value, this.checked)"> Crema</label>
             <label><input type="checkbox" class="filtro-color" value="Rojo" onchange="filtroColor(this.value, this.checked)"> Rojo</label>
@@ -106,38 +85,33 @@
             <label><input type="checkbox" class="filtro-color" value="Celeste" onchange="filtroColor(this.value, this.checked)"> Celeste</label>
             <label><input type="checkbox" class="filtro-color" value="Marron" onchange="filtroColor(this.value, this.checked)"> Marron</label>
             <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio-movil')">Precio</h3>
+            <div class="filtro-opciones" id="opciones-precio-movil">
+            <label>Min: <input type="number" id="precioMin-movil" oninput="aplicarFiltros()" ></label>
+            <label>Max: <input type="number" id="precioMax-movil" oninput="aplicarFiltros()" ></label>
+            </div>
+          </section>
+          <section class="filtro-grupo">
+            <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar-movil')">Ordenar</h3>
+            <div class="filtro-opciones" id="opciones-ordenar-movil">
+            <label><input type="radio" name="ordenar-movil" id="precioDesc-movil" onclick="ordenamiento('precioDesc')"> Precio </label>
+            <label><input type="radio" name="ordenar-movil" id="precioAsc-movil" onclick="ordenamiento('precioAsc')"> Precio ↓</label>
+           
+            <label><input type="radio" name="ordenar-movil" id="nombreAZ-movil" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
+            <label><input type="radio" name="ordenar-movil" id="nombreZA-movil" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
+            </div>
+          </section>
+          <div class="btn-limpiar-filtros">
+            <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
           </div>
-        </section>
-        <!-- Filtro por precio -->
-        <section class="filtro-grupo">
-          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio-movil')">Precio</h3>
-          <div class="filtro-opciones" id="opciones-precio-movil">
-            <label>Min: <input type="number" id="precioMinMovil" onclick="ordenamiento()" style="width: 150px;" min="0"></label>
-            <label>Max: <input type="number" id="precioMaxMovil" onclick="ordenamiento()" style="width: 145px;" min="0"></label>
-          </div>
-        </section>
-        <!-- Filtro de ordenamiento -->
-        <section class="filtro-grupo">
-          <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar-movil')">Ordenar</h3>
-          <div class="filtro-opciones" id="opciones-ordenar-movil">
-            <label><input type="checkbox" id="precioAscMovil" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
-            <label><input type="checkbox" id="precioDescMovil" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
-            <label><input type="checkbox" id="nombreAZMovil" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
-            <label><input type="checkbox" id="nombreZAMovil" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
-          </div>
-        </section>
-        <!-- Botón para limpiar filtros -->
-        <div class="btn-limpiar-filtros">
-          <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
         </div>
-      </div>
     </nav>
 
-    <!-- Contenido principal -->
     <main class="main-flex">
-      <!-- Panel lateral de filtros (versión desktop) -->
       <div class="elementos" id="elementos">
-        <!-- Filtro por marca -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca')">Marca</h3>
           <div class="filtro-opciones" id="opciones-marca">
@@ -146,14 +120,8 @@
             <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
             <label><input type="checkbox" class="filtro-marca" value="Puma" onchange="filtroMarca(this.value, this.checked)"> Puma</label>
             <label><input type="checkbox" class="filtro-marca" value="Vans" onchange="filtroMarca(this.value, this.checked)"> Vans</label>
-            <label><input type="checkbox" class="filtro-marca" value="DC" onchange="filtroMarca(this.value, this.checked)"> DC</label>
-            <label><input type="checkbox" class="filtro-marca" value="47Street" onchange="filtroMarca(this.value, this.checked)"> 47 Street</label>
-            <label><input type="checkbox" class="filtro-marca" value="Reebok" onchange="filtroMarca(this.value, this.checked)"> Reebok</label>
-            <label><input type="checkbox" class="filtro-marca" value="Dvs" onchange="filtroMarca(this.value, this.checked)"> Dvs</label>
-            <label><input type="checkbox" class="filtro-marca" value="Rusty" onchange="filtroMarca(this.value, this.checked)"> Rusty</label>
           </div>
         </section>
-        <!-- Filtro por color -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color')">Color</h3>
           <div class="filtro-opciones" id="opciones-color">
@@ -167,62 +135,53 @@
             <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
           </div>
         </section>
-        <!-- Filtro por precio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio')">Precio</h3>
           <div class="filtro-opciones" id="opciones-precio">
-            <label>Min: <input type="number" id="precioMin" onclick="ordenamiento()" style="width: 150px;" min="0"></label>
-            <label>Max: <input type="number" id="precioMax" onclick="ordenamiento()" style="width: 145px;" min="0"></label>
+            <label>Min: <input type="number" id="precioMin" oninput="aplicarFiltros()" ></label>
+            <label>Max: <input type="number" id="precioMax" oninput="aplicarFiltros()" ></label>
           </div>
         </section>
-        <!-- Filtro de ordenamiento -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar')">Ordenar</h3>
           <div class="filtro-opciones" id="opciones-ordenar">
-            <label><input type="checkbox" id="precioAsc" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
-            <label><input type="checkbox" id="precioDesc" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
-            <label><input type="checkbox" id="nombreAZ" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
-            <label><input type="checkbox" id="nombreZA" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
+            <label><input type="radio" name="ordenar" id="precioAsc" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
+            <label><input type="radio" name="ordenar" id="precioDesc" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
+            <label><input type="radio" name="ordenar" id="nombreAZ" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
+            <label><input type="radio" name="ordenar" id="nombreZA" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
           </div>
         </section>
-        <!-- Botón para limpiar filtros -->
         <div class="btn-limpiar-filtros">
           <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
         </div>
       </div>
-      <!-- Contenedor principal donde se muestran los productos -->
       <div class="contenedor"></div>
     </main>
 
-    <!-- Pie de página -->
     <footer class="footer-nuevo">
       <div class="footer-grid">
-        <!-- Columna 1: Información de la empresa -->
         <div class="footer-col">
           <h3>Urban Class</h3>
           <p>Tu destino para las mejores zapatillas urbanas.</p>
         </div>
-        <!-- Columna 2: Categorías -->
         <div class="footer-col">
           <h4>Categorías</h4>
           <ul>
-            <li>Hombre</li>
-            <li>Mujer</li>
-            <li>Niños</li>
-            <li>Ofertas</li>
+            <li><a href="#">Hombre</a></li>
+            <li><a href="#">Mujer</a></li>
+            <li><a href="#">Niños</a></li>
+            <li><a href="#">Ofertas</a></li>
           </ul>
         </div>
-        <!-- Columna 3: Enlaces de ayuda -->
         <div class="footer-col">
           <h4>Ayuda</h4>
           <ul>
-            <li>Preguntas frecuentes</li>
-            <li>Envíos</li>
-            <li>Devoluciones</li>
-            <li>Contacto</li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Envíos</a></li>
+            <li><a href="#">Devoluciones</a></li>
+            <li><a href="#">Contacto</a></li>
           </ul>
         </div>
-        <!-- Columna 4: Redes sociales -->
         <div class="footer-col">
           <h4>Síguenos</h4>
           <div class="footer-social">
@@ -231,22 +190,16 @@
           </div>
         </div>
       </div>
-      <!-- Copyright -->
       <div class="footer-copy">
         © 2025 Urban Class. Todos los derechos reservados.
       </div>
     </footer>
 
   </section>
-
-  <!-- Botón flotante para ir arriba -->
   <a href="#header" class="btn-flotante" aria-label="Ir arriba">
     &#8679;
   </a>
-
-  <!-- Scripts de JavaScript -->
-  <script src="../js/arrays.js"></script>
-  <script src="../js/main.js"></script>
+  <script type="module" src="../js/main.js"></script>
 </body>
 
 </html>
