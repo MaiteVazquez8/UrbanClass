@@ -33,23 +33,25 @@
           <img src="../media/body/header/favorito.png" alt="Me Gusta" style="filter: invert();">
           <span class="contador" id="contadorFavorito">0</span>
           <div id="favorito" class="favorito">
-            <div id="listaFavorito"></div>
             <button id="btnVaciarFavorito" class="btn-vaciar">Vaciar favoritos</button>
+            <div id="listaFavorito"></div>
           </div>
         </div>
         <div class="btn-carrito-header" onclick="verFormulario()">
           <img src="../media/body/header/carrito-de-compras.png" alt="Carrito" style="filter: invert();">
           <span class="contador" id="contadorCarrito">0</span>
           <div id="miniCarrito" class="mini-carrito">
-            <div id="listaMiniCarrito"></div>
             <button id="btnVaciarCarrito" class="btn-vaciar">Vaciar carrito</button>
+            <div id="listaMiniCarrito"></div>
           </div>
         </div>
       
       </div>
     </header>
+    <!-- SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS -->
+    <div id="slider-simple" class="slider-simple"></div>
+    <!-- FIN SLIDER SIMPLE -->
 
-    
     <nav class="menu-drawer" id="menuDrawer">
       <button class="close-drawer" onclick="toggleMenu()">×</button>
       <form class="buscador-drawer" onsubmit="buscar(); return false;">
@@ -207,6 +209,7 @@
     &#8679;
   </a>
   <script type="module" src="../js/main.js"></script>
+
 </body>
 
 </html>

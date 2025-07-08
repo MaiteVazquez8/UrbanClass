@@ -1,4 +1,5 @@
 import { productos } from './arrays.js'
+import { bolsas } from './bolsas.js'
 
 let marcasSeleccionadas = []
 let coloresSeleccionados = []
@@ -20,6 +21,7 @@ function mostrarProductos(lista, contenedor) {
       <h1>${producto.nombre}</h1>
       <h2>$${producto.precio}</h2>
       <p>${producto.descripcion}</p>
+        <img src="../media/body/header/estrella.png" alt="estrella" class="estrella-slider" />
       <button onclick="agregarCarrito(${producto.codigo})" class="btn-carrito">Agregar al carrito</button>
     `
     contenedor.appendChild(div)
@@ -307,6 +309,7 @@ function mostrarFavorito(lista, contenedor) {
         <h1>${producto.nombre}</h1>
         <h2>$${producto.precio}</h2>
         <p>${producto.descripcion}</p>
+        
         <button class="btnEliminar" onclick="eliminarFavorito(${index})">❌</button>
       </div>
     `
@@ -348,3 +351,29 @@ window.vaciarFavorito = vaciarFavorito
 window.eliminarFavorito = eliminarFavorito
 window.agregarMeGusta = agregarMeGusta
 window.verFormularioFavorito = verFormularioFavorito
+
+// SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS
+function renderizarSliderSimple() {
+  const slider = document.getElementById('slider-simple')
+  if (!slider) return
+  // Tomar los últimos 4 productos del array
+  const ultimos = bolsas.slice(-4)
+  slider.innerHTML = `
+    <div class="slider-simple-inner">
+      ${ultimos.map(bolsas => `
+        <div class="slide-simple">
+          <div class='img-container'>
+            <img src="${bolsas.imagen}" alt="${bolsas.nombre}" />
+            <button onclick="agregarMeGusta(${bolsas.codigo})" class="btn-like" aria-label="Me gusta">♥</button>
+          </div>
+          <h3>${bolsas.nombre}</h3>
+          <span class="precio">$${bolsas.precio}</span>
+          <p>${bolsas.descripcion}</p>
+          <img src="../media/body/header/estrella.png" alt="estrella" class="estrella-slider" />
+          <button onclick="agregarCarrito(${bolsas.codigo})" class="btn-carrito">Agregar al carrito</button>
+        </div>
+      `).join('')}
+    </div>
+  `
+}
+document.addEventListener('DOMContentLoaded', renderizarSliderSimple)

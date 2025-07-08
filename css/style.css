@@ -218,7 +218,9 @@ main {
 .img-container img {
     position: absolute;
     width: 100%;
+
     height: 100%;
+ min-height: 100px;
     object-fit: contain;
     border-radius: 10px;
     background: #fff;
@@ -792,7 +794,7 @@ main {
   
   .contenedor {
     margin-left: 5%;
-    padding: 0;
+    
     grid-template-columns: 1fr;
     gap: 18px;
   }
@@ -902,5 +904,160 @@ main {
   margin-bottom: 12px;
   letter-spacing: 1px;
   text-align: left;
+}
+
+/* SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS */
+.slider-simple {
+  width: 100%;
+  max-width: 950px;
+  margin: 30px auto 20px 280px;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding-bottom: 10px;
+}
+.slider-simple::-webkit-scrollbar {
+  height: 4px;
+  background: transparent;
+}
+.slider-simple::-webkit-scrollbar-thumb {
+  background: #111;
+  border-radius: 6px;
+}
+.slider-simple::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slider-simple-inner {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+.slide-simple {
+  background: #372d28;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 20px 16px;
+  transition: 0.2s ease-in;
+  position: relative;
+  color: #F8EBC1;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+.slide-simple:hover {
+  box-shadow: 0 6px 10px rgba(0, 0 ,0 ,0.6);
+  transition: 0.2s ease-out;
+  transform: scale(1.01);
+}
+.slide-simple .img-container {
+  position: relative;
+  width: 100%;
+  height: 170px;
+  margin-bottom: 16px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.slide-simple .img-container img {
+  position: static;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  transition: opacity 0.4s;
+  display: block;
+}
+.slide-simple h3 {
+  font-size: 15px;
+  color: #D9B26E;
+  margin-bottom: 6px;
+  text-align: center;
+  cursor: default;
+}
+.slide-simple .precio {
+  font-size: 16px;
+  color: #9C563D;
+  margin-bottom: 6px;
+  text-align: center;
+  cursor: default;
+  font-weight: bold;
+}
+.slide-simple p {
+  color: #F8EBC1;
+  font-size: 13px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
+}
+.slide-simple .btn-carrito {
+  background: #9C563D;
+  color: #F8EBC1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 14px;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 90%;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.slide-simple .btn-carrito:hover {
+  background: #D9B26E;
+  color: #3D322C;
+}
+.slide-simple .btn-like {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 26px;
+  color: #bdbdbd; 
+  transition: background 0.2s, color 0.3s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0;
+}
+.slide-simple .btn-like:hover {
+  background: #ffe6ec;
+  color: #e2557b;
+}
+.slide-simple .btn-like:active {
+  background: #e2557b;
+  color: #fff;
+}
+@media (max-width: 700px) {
+  .slide-simple {
+    min-width: 180px;
+    max-width: 98vw;
+    height: auto;
+    padding: 12px 4px 10px 4px;
+  }
+  .slide-simple .img-container {
+    height: 110px;
+  }
+}
+
+.estrella-slider {
+  display: block;
+  margin: 12px auto 18px auto;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
 }
 

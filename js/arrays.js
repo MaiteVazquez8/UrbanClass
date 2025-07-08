@@ -89,12 +89,12 @@ export const productos = [
     },
     {
         codigo: 9,
-        nombre: "Chuck Taylor All Star Lugged 2.0 Striped Knit",
+        nombre: "Chuck Taylor All Star Lugged 2.0",
         cantidad: 20,
         precio: 249000,
         imagen: "../media/zapatillas/zap9.jpg",
         imagen2: "../media/zapatillas/zap9-2.jpg",
-        descripcion: "Converse Chuck Taylor All Star Lugged 2.0 Striped Knit",
+        descripcion: "Converse Chuck Taylor All Star Lugged 2.0",
         marca: "Converse",
         color: "Celeste"
     },
@@ -364,12 +364,12 @@ export const productos = [
     },
     {
         codigo: 34,
-        nombre: "Chuck Taylor All Star Move Hi A10439c",
+        nombre: "Chuck Taylor All Star Move ",
         cantidad: 20,
         precio: 129000,
         imagen: "../media/zapatillas/zap34.webp",
         imagen2: "../media/zapatillas/zap34-2.webp",
-        descripcion: "Converse Chuck Taylor All Star Move Hi A10439c",
+        descripcion: "Converse Chuck Taylor All Star Move ",
         marca: "Converse",
         color: "Azul"
     },
@@ -441,12 +441,12 @@ export const productos = [
     },
     {
         codigo: 41,
-        nombre: "Air Jordan 1 Retro High OG 'Shadow 2.0'",
+        nombre: "Air Jordan 1 Retro High OG 'Shadow",
         cantidad: 20,
         precio: 224000,
         imagen: "../media/zapatillas/zap41.jpg",
         imagen2: "../media/zapatillas/zap41-2.png",
-        descripcion: "Nike Air Jordan 1 Retro High OG 'Shadow 2.0'",
+        descripcion: "Nike Air Jordan 1 Retro High OG 'Shadow'",
         marca: "Nike",
         color: "Negro/Gris"
     },
