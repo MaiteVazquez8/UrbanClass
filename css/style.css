@@ -927,7 +927,7 @@ main {
   
 }
 .slider-simple::-webkit-scrollbar-thumb {
-  background: #111;
+  background: #D9B26E;
   border-radius: 6px;
 }
 .slider-simple::-webkit-scrollbar-track {
