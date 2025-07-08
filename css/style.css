@@ -774,68 +774,27 @@ main {
     display: none;
   }
   
-  .header-right {
-    gap: 10px;
-  }
-  
-  .btn-carrito-header {
-    margin-left: 0;
-  }
-  
-  .main-flex {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
+
   .elementos {
     display: none !important;
   }
   
   .contenedor {
-    margin-left: 50px;
+    margin-left: 35px;
     padding: 0;
     grid-template-columns: 1fr;
     gap: 18px;
   }
 }
 
-@media (max-width: 656px) {
-  .contenedor {
-    grid-template-columns: 1fr;
-    padding: 0 ;
-    gap: 12px;
-  }
-}
-
 @media (min-width: 901px) {
-  .buscador-drawer {
-    display: none !important;
-  }
-  
-  .menu-drawer {
-    display: block !important;
-  }
   
   .menu-drawer .drawer-filtros,
   .menu-drawer .btn-limpiar-filtros {
     display: none !important;
   }
-  
-  .menu-drawer ul {
-    display: block;
-  }
-  
-  .elementos {
-    position: fixed;
-    left: 20px;
-    top: 100px;
-    width: 250px;
-    background: #372d28;
-    z-index: 10;
-    transform: none;
-    height: auto;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  }
+   
+
 }
 
 @media (max-width: 900px) {
@@ -905,66 +864,6 @@ main {
   text-align: left;
 }
 
-@media (max-width: 1023px) {
-  .contenedor {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 700px) {
-  .contenedor {
-    grid-template-columns: 1fr;
-  }
-}
-
-.nosotros {
-  background: #3D322C;
-  color: #F8EBC1;
-  padding: 40px 0 30px 0;
-  margin-top: 30px;
-}
-.nosotros-contenido {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-.nosotros-img img {
-  width: 320px;
-  max-width: 90vw;
-  border-radius: 18px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-  background: #fff;
-}
-.nosotros-texto {
-  max-width: 600px;
-}
-.nosotros-texto h2 {
-  color: #D9B26E;
-  margin-bottom: 12px;
-  font-size: 2em;
-}
-.nosotros-texto p {
-  font-size: 1.1em;
-  line-height: 1.7;
-}
-@media (max-width: 900px) {
-  .nosotros-contenido {
-    flex-direction: column;
-    gap: 24px;
-    text-align: center;
-  }
-  .nosotros-img img {
-    width: 90vw;
-    max-width: 350px;
-  }
-  .nosotros-texto {
-    max-width: 98vw;
-  }
-}
 
 
 
