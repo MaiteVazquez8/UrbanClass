@@ -916,15 +916,15 @@ main {
 /* SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS */
 .slider-simple {
   width: 100%;
-  max-width: 950px;
+  max-width: 1000px;
   margin: 30px auto 20px 280px;
   overflow-x: auto;
   overflow-y: visible;
   padding-bottom: 10px;
 }
 .slider-simple::-webkit-scrollbar {
-  height: 4px;
-  background: transparent;
+  height: 10px;
+  
 }
 .slider-simple::-webkit-scrollbar-thumb {
   background: #111;
