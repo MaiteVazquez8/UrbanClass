@@ -567,7 +567,7 @@ main {
 .carritoItem .carrito-img-container, .favoritoItem .carrito-img-container {
     width:100px;
     height: 60px;
-    overflow-y: hidden;
+   
     margin-bottom: 0;
     background-image: auto  auto;
     
