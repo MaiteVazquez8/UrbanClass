@@ -1,7 +1,7 @@
 export const productos = [
     {
         codigo: 1,
-        nombre: "Old Skool",
+        nombre: "Old Skool", 
         cantidad: 20,
         precio: 89000,
         imagen: "../media/zapatillas/zap1.webp",

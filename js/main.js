@@ -45,18 +45,20 @@ function filtroColor(valor, checked) {
 }
 
 function aplicarFiltros() {
-  const min = parseFloat(document.getElementById('precioMin').value)
-  const max = parseFloat(document.getElementById('precioMax').value)
+  const min = parseFloat(document.getElementById('precioMin')?.value || document.getElementById('precioMinMovil')?.value || '')
+  const max = parseFloat(document.getElementById('precioMax')?.value || document.getElementById('precioMaxMovil')?.value || '')
+  
   let resultados = productos.filter(producto =>
     (marcasSeleccionadas.length === 0 || marcasSeleccionadas.includes(producto.marca)) &&
     (coloresSeleccionados.length === 0 || coloresSeleccionados.includes(producto.color)) &&
     (isNaN(min) || producto.precio >= min) &&
     (isNaN(max) || producto.precio <= max)
   )
-  const ordenarAsc = document.getElementById('precioAsc').checked
-  const ordenarDesc = document.getElementById('precioDesc').checked
-  const ordenarAZ = document.getElementById('nombreAZ').checked
-  const ordenarZA = document.getElementById('nombreZA').checked
+  
+  const ordenarAsc = document.getElementById('precioAsc')?.checked || document.getElementById('precioAscMovil')?.checked
+  const ordenarDesc = document.getElementById('precioDesc')?.checked || document.getElementById('precioDescMovil')?.checked
+  const ordenarAZ = document.getElementById('nombreAZ')?.checked || document.getElementById('nombreAZMovil')?.checked
+  const ordenarZA = document.getElementById('nombreZA')?.checked || document.getElementById('nombreZAMovil')?.checked
 
   resultados.sort((productoA, productoB) => {
     if (ordenarAZ) return productoA.nombre.localeCompare(productoB.nombre)
@@ -72,7 +74,8 @@ function aplicarFiltros() {
 
 function ordenamiento(idSeleccionado) {
   const checkboxSeleccionado = document.getElementById(idSeleccionado);
-  const estabaActivo = checkboxSeleccionado.checked;
+  const checkboxMovil = document.getElementById(idSeleccionado + 'Movil');
+  const estabaActivo = checkboxSeleccionado?.checked || checkboxMovil?.checked;
 
   const grupos = {
     nombre: ['nombreAZ', 'nombreZA'],
@@ -83,18 +86,23 @@ function ordenamiento(idSeleccionado) {
     if (grupos[grupo].includes(idSeleccionado)) {
       grupos[grupo].forEach(id => {
         if (id !== idSeleccionado) {
-          document.getElementById(id).checked = false;
+          const checkbox = document.getElementById(id);
+          const checkboxM = document.getElementById(id + 'Movil');
+          if (checkbox) checkbox.checked = false;
+          if (checkboxM) checkboxM.checked = false;
         }
       });
     }
   }
 
-  checkboxSeleccionado.checked = estabaActivo;
+  if (checkboxSeleccionado) checkboxSeleccionado.checked = estabaActivo;
+  if (checkboxMovil) checkboxMovil.checked = estabaActivo;
   aplicarFiltros();
 }
 
 function buscar() {
-  let auxNombre = document.getElementById('nombre').value.toLowerCase();
+  let auxNombre = document.getElementById('nombre')?.value || document.getElementById('nombre-movil')?.value || '';
+  auxNombre = auxNombre.toLowerCase();
   let auxResultado = document.querySelector('.contenedor');
 
   if (auxNombre === "") {
@@ -143,11 +151,22 @@ function limpiarFiltros() {
 
   document.querySelectorAll('.filtro-marca').forEach(input => input.checked = false);
   document.querySelectorAll('.filtro-color').forEach(input => input.checked = false);
-  document.getElementById('precioMin').value = '';
-  document.getElementById('precioMax').value = '';
+  
+  const precioMin = document.getElementById('precioMin');
+  const precioMax = document.getElementById('precioMax');
+  const precioMinMovil = document.getElementById('precioMinMovil');
+  const precioMaxMovil = document.getElementById('precioMaxMovil');
+  
+  if (precioMin) precioMin.value = '';
+  if (precioMax) precioMax.value = '';
+  if (precioMinMovil) precioMinMovil.value = '';
+  if (precioMaxMovil) precioMaxMovil.value = '';
+  
   ['precioAsc', 'precioDesc', 'nombreAZ', 'nombreZA'].forEach(id => {
     const checkbox = document.getElementById(id);
+    const checkboxMovil = document.getElementById(id + 'Movil');
     if (checkbox) checkbox.checked = false;
+    if (checkboxMovil) checkboxMovil.checked = false;
   });
 
   mostrarProductos(productos, contenedor);
@@ -165,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const footer = document.querySelector('footer')
 
   function ajustarSidebar() {
+    if (!sidebar) return;
     const topSidebar = Math.max(header.getBoundingClientRect().bottom + 10, 10)
     const espacioFooter = footer.getBoundingClientRect().top - 30
     const altoVentana = window.innerHeight
@@ -177,8 +197,17 @@ document.addEventListener('DOMContentLoaded', () => {
   ajustarSidebar()
 })
 
-document.getElementById('precioMin').addEventListener('input', aplicarFiltros)
-document.getElementById('precioMax').addEventListener('input', aplicarFiltros)
+document.addEventListener('DOMContentLoaded', () => {
+  const precioMin = document.getElementById('precioMin');
+  const precioMax = document.getElementById('precioMax');
+  const precioMinMovil = document.getElementById('precioMinMovil');
+  const precioMaxMovil = document.getElementById('precioMaxMovil');
+  
+  if (precioMin) precioMin.addEventListener('input', aplicarFiltros);
+  if (precioMax) precioMax.addEventListener('input', aplicarFiltros);
+  if (precioMinMovil) precioMinMovil.addEventListener('input', aplicarFiltros);
+  if (precioMaxMovil) precioMaxMovil.addEventListener('input', aplicarFiltros);
+})
 
 const carrito = []
 function agregarCarrito(codigo) {
@@ -204,9 +233,9 @@ function verFormulario() {
   ver.style.display = ver.style.display === 'block' ? 'none' : 'block'
 }
 
-function mostrarMiniCarrito(productos, contenedor) {
+function mostrarMiniCarrito(lista, contenedor) {
   contenedor.innerHTML = ''
-  productos.forEach((producto, index) => {
+  lista.forEach((producto, index) => {
     let div = document.createElement('div')
     div.classList.add('item-carrito')
     div.innerHTML = `
@@ -220,7 +249,6 @@ function mostrarMiniCarrito(productos, contenedor) {
         <button class="btnEliminar" onclick="eliminarCarrito(${index})">❌</button>
       </div>
     `
-
     contenedor.appendChild(div)
   })
 }
@@ -231,7 +259,11 @@ function eliminarCarrito(index) {
   formulario()
 }
 
-document.getElementById('btnVaciarCarrito').addEventListener('click', vaciarCarrito)
+document.addEventListener('DOMContentLoaded', () => {
+  const btnVaciarCarrito = document.getElementById('btnVaciarCarrito');
+  if (btnVaciarCarrito) btnVaciarCarrito.addEventListener('click', vaciarCarrito);
+})
+
 function vaciarCarrito() {
   carrito.length = 0
   cantCarrito()
@@ -266,20 +298,18 @@ function mostrarFavorito(lista, contenedor) {
   contenedor.innerHTML = ''
   lista.forEach((producto, index) => {
     let div = document.createElement('div')
-    div.classList.add('item-carrito')
+    div.classList.add('item-favorito')
     div.innerHTML = `
       <div class="favoritoItem">
         <div class="img-container">
           <img src="${producto.imagen}" alt="${producto.nombre}">
-            <img src="${producto.imagen2}" alt="${producto.nombre}">
-            </div>
-            <h1>${producto.nombre}</h1>
-            <h2>$${producto.precio}</h2>
-            <p>${producto.descripcion}</p>
-            <button class="btnEliminar" onclick="eliminarFavorito(${index})">❌</button>
         </div>
+        <h1>${producto.nombre}</h1>
+        <h2>$${producto.precio}</h2>
+        <p>${producto.descripcion}</p>
+        <button class="btnEliminar" onclick="eliminarFavorito(${index})">❌</button>
+      </div>
     `
-
     contenedor.appendChild(div)
   })
 }
@@ -290,13 +320,18 @@ function eliminarFavorito(index) {
   formularioFavorito()
 }
 
-document.getElementById('btnVaciarFavorito').addEventListener('click', vaciarFavorito)
+document.addEventListener('DOMContentLoaded', () => {
+  const btnVaciarFavorito = document.getElementById('btnVaciarFavorito');
+  if (btnVaciarFavorito) btnVaciarFavorito.addEventListener('click', vaciarFavorito);
+})
+
 function vaciarFavorito() {
   favoritos.length = 0
   cantFavorito()
   formularioFavorito()
 }
 
+// Exportar funciones para uso global
 window.vaciarCarrito = vaciarCarrito
 window.eliminarCarrito = eliminarCarrito
 window.agregarCarrito = agregarCarrito
