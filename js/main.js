@@ -242,7 +242,7 @@ function mostrarMiniCarrito(lista, contenedor) {
     div.classList.add('item-carrito')
     div.innerHTML = `
       <div class="carritoItem">
-        <div class="img-container">
+        <div class="carrito-img-container">
           <img src="${producto.imagen}" alt="${producto.nombre}">
         </div>
         <h1>${producto.nombre}</h1>

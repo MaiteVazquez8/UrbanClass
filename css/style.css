@@ -564,20 +564,27 @@ main {
     position: relative;
 }
 
-.carritoItem .img-container, .favoritoItem .img-container {
-    width: 60px;
+.carritoItem .carrito-img-container, .favoritoItem .carrito-img-container {
+    width:100px;
     height: 60px;
-    flex-shrink: 0;
+    overflow-y: hidden;
     margin-bottom: 0;
+    background-image: auto  auto;
+    
 }
 
-.carritoItem .img-container img, .favoritoItem .img-container img {
+.carritoItem .carrito-img-container img, .favoritoItem .carrito-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    margin-top: auto;
+    margin-bottom: auto;
     border-radius: 6px;
     background: #fff;
+    background-image: auto auto ;
 }
+
+
 
 .carritoItem h1, .favoritoItem h1 {
     font-size: 14px;
