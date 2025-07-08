@@ -792,7 +792,7 @@ main {
   }
   
   .contenedor {
-    margin-left: 50px;
+    margin-left: 15px;
     padding: 0;
     grid-template-columns: 1fr;
     gap: 18px;
