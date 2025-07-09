@@ -1,12 +1,14 @@
+//Arrays
 import { productos } from './arrays.js'
 import { bolsas } from './bolsas.js'
 
-let marcasSeleccionadas = []
-let coloresSeleccionados = []
+let marcasSeleccionadas = []//Marcas seleccionadas por el usuario en los filtros
+let coloresSeleccionados = []//Colores seleccionados por el usuario en los filtros
 let contenedor = document.querySelector('.contenedor')
 
-document.addEventListener('DOMContentLoaded', () => mostrarProductos(productos, contenedor))
+document.addEventListener('DOMContentLoaded', () => mostrarProductos(productos, contenedor))//Muestra los productos despues de que se carga el dom
 
+//Mostrar productos
 function mostrarProductos(lista, contenedor) {
   contenedor.innerHTML = ''
   lista.forEach(producto => {
@@ -28,6 +30,7 @@ function mostrarProductos(lista, contenedor) {
   })
 }
 
+//Filtrado por marca
 function filtroMarca(valor, checked) {
   if (checked) {
     if (!marcasSeleccionadas.includes(valor)) marcasSeleccionadas.push(valor)
@@ -37,6 +40,7 @@ function filtroMarca(valor, checked) {
   aplicarFiltros()
 }
 
+//Filtrado por color
 function filtroColor(valor, checked) {
   if (checked) {
     if (!coloresSeleccionados.includes(valor)) coloresSeleccionados.push(valor)
@@ -46,6 +50,7 @@ function filtroColor(valor, checked) {
   aplicarFiltros()
 }
 
+//Aplicar filtros
 function aplicarFiltros() {
   const min = parseFloat(document.getElementById('precioMin')?.value || document.getElementById('precioMinMovil')?.value || '')
   const max = parseFloat(document.getElementById('precioMax')?.value || document.getElementById('precioMaxMovil')?.value || '')
@@ -74,6 +79,7 @@ function aplicarFiltros() {
   else contenedor.innerHTML = '<p class="no-result">! No se encontraron productos que cumplan con los filtros.</p>'
 }
 
+//Ordenamientos
 function ordenamiento(idSeleccionado) {
   const checkboxSeleccionado = document.getElementById(idSeleccionado);
   const checkboxMovil = document.getElementById(idSeleccionado + 'Movil');
@@ -102,6 +108,7 @@ function ordenamiento(idSeleccionado) {
   aplicarFiltros();
 }
 
+//Buscador
 function buscar() {
   let auxNombre = document.getElementById('nombre')?.value || document.getElementById('nombre-movil')?.value || '';
   auxNombre = auxNombre.toLowerCase();
@@ -139,6 +146,7 @@ function buscar() {
     });
 }
 
+//Submenu
 function toggleSubmenu(id) {
   const submenu = document.getElementById(id);
   const titulo = document.querySelector(`.filtro-titulo[onclick*='${id}']`);
@@ -147,6 +155,7 @@ function toggleSubmenu(id) {
   submenu.style.display = abierto ? 'flex' : 'none';
 }
 
+//Borrar filtros
 function limpiarFiltros() {
   marcasSeleccionadas = [];
   coloresSeleccionados = [];
@@ -174,12 +183,14 @@ function limpiarFiltros() {
   mostrarProductos(productos, contenedor);
 }
 
+//Menu
 function toggleMenu() {
   const menu = document.getElementById('menuDrawer');
   if (!menu) return;
   menu.classList.toggle('open');
 }
 
+//Sidebar
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.querySelector('.elementos')
   const header = document.querySelector('.header')
@@ -199,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ajustarSidebar()
 })
 
+//Precio minimo y maximo
 document.addEventListener('DOMContentLoaded', () => {
   const precioMin = document.getElementById('precioMin');
   const precioMax = document.getElementById('precioMax');
@@ -211,9 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (precioMaxMovil) precioMaxMovil.addEventListener('input', aplicarFiltros);
 })
 
+//Carrito
 const carrito = []
 function agregarCarrito(codigo) {
-  const producto = productos.find(i => i.codigo === codigo)
+  const producto = [...productos, ...bolsas].find(i => i.codigo === codigo)
   if (producto) {
     carrito.push(producto)
     cantCarrito()
@@ -272,15 +285,20 @@ function vaciarCarrito() {
   formulario()
 }
 
+//Favoritos
 const favoritos = []
 function agregarMeGusta(codigo) {
-  const producto = productos.find(i => i.codigo === codigo)
+  const yaExiste = favoritos.some(p => p.codigo === codigo)
+  if (yaExiste) return
+
+  const producto = [...productos, ...bolsas].find(i => i.codigo === codigo)
   if (producto) {
     favoritos.push(producto)
     cantFavorito()
     formularioFavorito()
   }
 }
+
 
 function cantFavorito() {
   document.getElementById('contadorFavorito').textContent = favoritos.length
@@ -303,7 +321,7 @@ function mostrarFavorito(lista, contenedor) {
     div.classList.add('item-favorito')
     div.innerHTML = `
       <div class="favoritoItem">
-        <div class="img-container">
+        <div class="carrito-img-container">
           <img src="${producto.imagen}" alt="${producto.nombre}">
         </div>
         <h1>${producto.nombre}</h1>
@@ -334,30 +352,11 @@ function vaciarFavorito() {
   formularioFavorito()
 }
 
-// Exportar funciones para uso global
-window.vaciarCarrito = vaciarCarrito
-window.eliminarCarrito = eliminarCarrito
-window.agregarCarrito = agregarCarrito
-window.verFormulario = verFormulario
-window.filtroMarca = filtroMarca
-window.filtroColor = filtroColor
-window.aplicarFiltros = aplicarFiltros
-window.ordenamiento = ordenamiento
-window.buscar = buscar
-window.toggleSubmenu = toggleSubmenu
-window.toggleMenu = toggleMenu
-window.limpiarFiltros = limpiarFiltros
-window.vaciarFavorito = vaciarFavorito
-window.eliminarFavorito = eliminarFavorito
-window.agregarMeGusta = agregarMeGusta
-window.verFormularioFavorito = verFormularioFavorito
-
-// SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS
+// Slider
 function renderizarSliderSimple() {
   const slider = document.getElementById('slider-simple')
   if (!slider) return
-  // Tomar los últimos 4 productos del array
-  const ultimos = bolsas.slice(-4)
+  const ultimos = bolsas
   slider.innerHTML = `
     <div class="slider-simple-inner">
       ${ultimos.map(bolsas => `
@@ -377,3 +376,20 @@ function renderizarSliderSimple() {
   `
 }
 document.addEventListener('DOMContentLoaded', renderizarSliderSimple)
+
+window.vaciarCarrito = vaciarCarrito
+window.eliminarCarrito = eliminarCarrito
+window.agregarCarrito = agregarCarrito
+window.verFormulario = verFormulario
+window.filtroMarca = filtroMarca
+window.filtroColor = filtroColor
+window.aplicarFiltros = aplicarFiltros
+window.ordenamiento = ordenamiento
+window.buscar = buscar
+window.toggleSubmenu = toggleSubmenu
+window.toggleMenu = toggleMenu
+window.limpiarFiltros = limpiarFiltros
+window.vaciarFavorito = vaciarFavorito
+window.eliminarFavorito = eliminarFavorito
+window.agregarMeGusta = agregarMeGusta
+window.verFormularioFavorito = verFormularioFavorito

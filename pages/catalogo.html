@@ -1,34 +1,42 @@
 <!DOCTYPE html>
+<!-- Declaración del tipo de documento HTML -->
 <html lang="en">
 
 <head>
+  <!-- Metadatos de codificación y responsive -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urban Class</title>
+  <!-- Enlace a la hoja de estilos principal del catálogo -->
   <link rel="stylesheet" href="../css/style.css" />
+  <!-- Favicon de la página -->
   <link rel="icon" href="../media/body/header/estrella.png" type="image/png" />
 
 </head>
 
 <body>
   <section class="a">
-
+    <!-- Header principal con menú, logo, buscador y botones de carrito/favoritos -->
     <header class="header" id="header">
       <div class="header-left">
+        <!-- Botón para abrir/cerrar el menú lateral en móvil -->
         <button class="menu-btn" id="menu-btn" onclick="toggleMenu()">
           <img src="../media/body/header/menu2.png" alt="Menu" />
         </button>
       </div>
       <div class="header-center">
         <div class="logo">
+          <!-- Logo de la marca -->
           <img src="../media/body/header/logo.png" alt="Logo" />
         </div>
+        <!-- Buscador principal de productos -->
         <form class="buscador" onsubmit="buscar(); return false;">
           <input type="text" name="Nombre" id="nombre" placeholder="Ingrese nombre del producto" />
           <button type="submit">🔍︎</button>
         </form>
       </div>
       <div class="header-right">
+        <!-- Botón de favoritos con contador y menú desplegable -->
         <div class="btn-carrito-header" onclick="verFormularioFavorito()">
           <img src="../media/body/header/favorito.png" alt="Me Gusta" style="filter: invert();">
           <span class="contador" id="contadorFavorito">0</span>
@@ -37,6 +45,7 @@
             <div id="listaFavorito"></div>
           </div>
         </div>
+        <!-- Botón de carrito con contador y menú desplegable -->
         <div class="btn-carrito-header" onclick="verFormulario()">
           <img src="../media/body/header/carrito-de-compras.png" alt="Carrito" style="filter: invert();">
           <span class="contador" id="contadorCarrito">0</span>
@@ -45,28 +54,31 @@
             <div id="listaMiniCarrito"></div>
           </div>
         </div>
-      
       </div>
     </header>
-    <!-- SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS -->
+    <!-- Slider de los últimos 4 productos agregados -->
     <div id="slider-simple" class="slider-simple"></div>
-    <!-- FIN SLIDER SIMPLE -->
-
+    <!-- Menú lateral desplegable para filtros y navegación móvil -->
     <nav class="menu-drawer" id="menuDrawer">
       <button class="close-drawer" onclick="toggleMenu()">×</button>
+      <!-- Buscador dentro del menú lateral -->
       <form class="buscador-drawer" onsubmit="buscar(); return false;">
         <input type="text" name="Nombre" id="nombre" placeholder="Buscar producto..." />
         <button type="submit">🔍︎</button>
       </form>
+      <!-- Enlaces de navegación rápida -->
       <ul>
         <li><a href="#">Login</a></li>
         <li><a href="#">Register</a></li>
         <li><a href="../index.html">Inicio</a></li>
       </ul>
+      <!-- Filtros de productos en menú lateral -->
       <div class="drawer-filtros">
+        <!-- Filtro por marca -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca-movil')">Marca</h3>
           <div class="filtro-opciones" id="opciones-marca-movil">
+            <!-- Opciones de marcas con checkboxes -->
             <label><input type="checkbox" class="filtro-marca" value="Nike" onchange="filtroMarca(this.value, this.checked)"> Nike</label>
             <label><input type="checkbox" class="filtro-marca" value="Adidas" onchange="filtroMarca(this.value, this.checked)"> Adidas</label>
             <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
@@ -79,9 +91,11 @@
             <label><input type="checkbox" class="filtro-marca" value="Rusty" onchange="filtroMarca(this.value, this.checked)"> Rusty</label>
           </div>
         </section>
+        <!-- Filtro por color -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color-movil')">Color</h3>
           <div class="filtro-opciones" id="opciones-color-movil">
+            <!-- Opciones de colores con checkboxes -->
             <label><input type="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
             <label><input type="checkbox" class="filtro-color" value="Blanco" onchange="filtroColor(this.value, this.checked)"> Blanco</label>
             <label><input type="checkbox" class="filtro-color" value="Crema" onchange="filtroColor(this.value, this.checked)"> Crema</label>
@@ -92,33 +106,40 @@
             <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
           </div>
         </section>
+        <!-- Filtro por precio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio-movil')">Precio</h3>
           <div class="filtro-opciones" id="opciones-precio-movil">
+            <!-- Inputs para rango de precio mínimo y máximo -->
             <label>Min: <input type="number" id="precioMinMovil" onclick="ordenamiento()" style="width: 150px;" min="0"></label>
             <label>Max: <input type="number" id="precioMaxMovil" onclick="ordenamiento()" style="width: 145px;" min="0"></label>
           </div>
         </section>
+        <!-- Filtro de ordenamiento -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar-movil')">Ordenar</h3>
           <div class="filtro-opciones" id="opciones-ordenar-movil">
+            <!-- Opciones de ordenamiento con checkboxes -->
             <label><input type="checkbox" id="precioAscMovil" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
             <label><input type="checkbox" id="precioDescMovil" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
             <label><input type="checkbox" id="nombreAZMovil" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
             <label><input type="checkbox" id="nombreZAMovil" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
           </div>
         </section>
+        <!-- Botón para limpiar todos los filtros -->
         <div class="btn-limpiar-filtros">
           <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
         </div>
       </div>
     </nav>
-
+    <!-- Filtros principales en la vista de escritorio -->
     <main class="main-flex">
       <div class="elementos" id="elementos">
+        <!-- Filtro por marca en escritorio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-marca')">Marca</h3>
           <div class="filtro-opciones" id="opciones-marca">
+            <!-- Opciones de marcas con checkboxes -->
             <label><input type="checkbox" class="filtro-marca" value="Nike" onchange="filtroMarca(this.value, this.checked)"> Nike</label>
             <label><input type="checkbox" class="filtro-marca" value="Adidas" onchange="filtroMarca(this.value, this.checked)"> Adidas</label>
             <label><input type="checkbox" class="filtro-marca" value="Converse" onchange="filtroMarca(this.value, this.checked)"> Converse</label>
@@ -131,9 +152,11 @@
             <label><input type="checkbox" class="filtro-marca" value="Rusty" onchange="filtroMarca(this.value, this.checked)"> Rusty</label>
           </div>
         </section>
+        <!-- Filtro por color en escritorio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-color')">Color</h3>
           <div class="filtro-opciones" id="opciones-color">
+            <!-- Opciones de colores con checkboxes -->
             <label><input type="checkbox" class="filtro-color" value="Negro" onchange="filtroColor(this.value, this.checked)"> Negro</label>
             <label><input type="checkbox" class="filtro-color" value="Blanco" onchange="filtroColor(this.value, this.checked)"> Blanco</label>
             <label><input type="checkbox" class="filtro-color" value="Crema" onchange="filtroColor(this.value, this.checked)"> Crema</label>
@@ -144,29 +167,35 @@
             <label><input type="checkbox" class="filtro-color" value="Navy" onchange="filtroColor(this.value, this.checked)"> Navy</label>
           </div>
         </section>
+        <!-- Filtro por precio en escritorio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-precio')">Precio</h3>
           <div class="filtro-opciones" id="opciones-precio">
+            <!-- Inputs para rango de precio mínimo y máximo -->
             <label>Min: <input type="number" id="precioMin" onclick="ordenamiento()" style="width: 150px;" min="0"></label>
             <label>Max: <input type="number" id="precioMax" onclick="ordenamiento()" style="width: 145px;" min="0"></label>
           </div>
         </section>
+        <!-- Filtro de ordenamiento en escritorio -->
         <section class="filtro-grupo">
           <h3 class="filtro-titulo" onclick="toggleSubmenu('opciones-ordenar')">Ordenar</h3>
           <div class="filtro-opciones" id="opciones-ordenar">
+            <!-- Opciones de ordenamiento con checkboxes -->
             <label><input type="checkbox" id="precioAsc" onclick="ordenamiento('precioAsc')"> Precio ↑</label>
             <label><input type="checkbox" id="precioDesc" onclick="ordenamiento('precioDesc')"> Precio ↓</label>
             <label><input type="checkbox" id="nombreAZ" onclick="ordenamiento('nombreAZ')"> Nombre A-Z</label>
             <label><input type="checkbox" id="nombreZA" onclick="ordenamiento('nombreZA')"> Nombre Z-A</label>
           </div>
         </section>
+        <!-- Botón para limpiar todos los filtros en escritorio -->
         <div class="btn-limpiar-filtros">
           <button onclick="limpiarFiltros()" class="btn-limpiar">Borrar filtros</button>
         </div>
       </div>
+      <!-- Contenedor donde se mostrarán los productos filtrados -->
       <div class="contenedor"></div>
     </main>
-
+    <!-- Pie de página con información de la empresa, categorías, ayuda y redes sociales -->
     <footer class="footer-nuevo">
       <div class="footer-grid">
         <div class="footer-col">
@@ -194,7 +223,7 @@
         <div class="footer-col">
           <h4>Síguenos</h4>
           <div class="footer-social">
-           
+            <!-- Enlace a Instagram -->
             <a href="https://www.instagram.com/urbannclass?igsh=dzBrNGIxM2tqODZv" aria-label="Instagram" target="_blank"><img src="../media/body/footer/instagram.png" alt="Instagram" width="24" height="24" style="filter: invert();"></a>
           </div>
         </div>
@@ -203,13 +232,13 @@
         © 2025 Urban Class. Todos los derechos reservados.
       </div>
     </footer>
-
   </section>
+  <!-- Botón flotante para volver arriba -->
   <a href="#header" class="btn-flotante" aria-label="Ir arriba">
     &#8679;
   </a>
+  <!-- Script principal de la página -->
   <script type="module" src="../js/main.js"></script>
-
 </body>
 
 </html>

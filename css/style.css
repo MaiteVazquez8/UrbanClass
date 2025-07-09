@@ -1,149 +1,157 @@
+/* ===== RESET Y CONFIGURACIÓN BÁSICA ===== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ===== ESTILOS GENERALES DEL BODY ===== */
 body {
-    font-family: 'Arial', sans-serif;
-    color: #F8EBC1;
-    background-image: url('../media/body/banner.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat;
-    display: flex;
-    overflow-x: hidden;
+  font-family: 'Arial', sans-serif;
+  color: #F8EBC1;
+  background-image: url('../media/body/banner.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  display: flex;
+  overflow-x: hidden;
 }
 
+/* ===== ESTILOS GENERALES DE HTML Y BODY ===== */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: url('../media/body/banner.jpeg') center center/cover repeat ;
-    color: #F8EBC1;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('../media/body/banner.jpeg') center center/cover repeat ;
+  color: #F8EBC1;
 }
 
+/* ===== HEADER PRINCIPAL ===== */
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background: #3D322C;
-    color: #F8EBC1;
-    padding: 10px 0;
-    box-sizing: border-box;
-    border-bottom: 2px solid #654534;
-    position: relative;
-    z-index: 100;
-    width: auto;
-    margin: 0 auto;
- 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #3D322C;
+  color: #F8EBC1;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid #654534;
+  position: relative;
+  z-index: 100;
+  width: auto;
+  margin: 0 auto;
 }
 
+/* ===== COLUMNAS DEL HEADER ===== */
 .header-left,
 .header-right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  margin-right: 10px;
 }
 
+/* ===== CENTRO DEL HEADER ===== */
 .header-center {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
 }
 
+/* ===== LOGO DE LA MARCA ===== */
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .logo img {
-    height: 60px;
-    margin-bottom: 10px;
-    border-radius: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+  border-radius: 100%;
 }
 
+/* ===== BUSCADOR PRINCIPAL ===== */
 .buscador {
-    display: flex;
-    align-items: center;
-    background: #3D322C;
-    border-bottom: 2px solid #F8EBC1;
-    width: 350px;
-  
+  display: flex;
+  align-items: center;
+  background: #3D322C;
+  border-bottom: 2px solid #F8EBC1;
+  width: 350px;
 }
 
 .buscador input {
-    background: transparent;
-    color: #F8EBC1;
-    border: none;
-    outline: none;
-    font-size: 17px;
-    flex: 1;
+  background: transparent;
+  color: #F8EBC1;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  flex: 1;
 }
 
 .buscador button {
-    background: none;
-    color: #F8EBC1;
-    border: none;
-    font-size: 17px;
-    cursor: pointer;
-    transition: color 0.2s;
+  background: none;
+  color: #F8EBC1;
+  border: none;
+  font-size: 17px;
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .buscador button:hover {
-    color: #D9B26E;
+  color: #D9B26E;
 }
 
+/* ===== BOTÓN DE CARRITO Y FAVORITOS EN HEADER ===== */
 .header-right {
-    gap: 18px;
-    padding-right: 10px;
-    cursor: pointer;
+  gap: 18px;
+  padding-right: 10px;
+  cursor: pointer;
 }
 
 .btn-carrito-header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .btn-carrito-header img {
-    width: 24px;
-    height: 24px;
-    transition: filter 0.2s;
+  width: 24px;
+  height: 24px;
+  transition: filter 0.2s;
 }
 
+/* ===== CONTADOR DE CARRITO Y FAVORITOS ===== */
 .contador {
-    background: #D9B26E;
-    color: #3D322C;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 1px 6px;
-    font-size: 14px;
-    margin-left: 3px;
-    min-width: 18px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-    border: 2px solid #3D322C;
-    position: static;
-    
+  background: #D9B26E;
+  color: #3D322C;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 1px 6px;
+  font-size: 14px;
+  margin-left: 3px;
+  min-width: 18px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  border: 2px solid #3D322C;
+  position: static;
 }
 
+/* ===== MAIN Y CONTENEDORES ===== */
 main {
-    padding: 15px;
-    flex: 1 0 auto;
-    min-height: calc(100vh - 150px - 70px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 15px;
+  flex: 1 0 auto;
+  min-height: calc(100vh - 150px - 70px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* ===== FILTROS LATERALES ===== */
 .elementos {
   margin-top:5px;
   overflow-y: auto;
@@ -175,197 +183,217 @@ main {
   background: #ffe9b0;
 }
 
+/* ===== CONTENEDOR DE PRODUCTOS ===== */
 .contenedor {
-    padding: 0px 20px;
-    margin-left: 260px;
-    display: flex;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-items: center;
-    min-height: 400px;
+  padding: 0px 20px;
+  margin-left: 260px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+  min-height: 400px;
 }
 
+/* ===== TARJETAS DE PRODUCTO ===== */
 .tarjetas {
-    background: #372d28;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 300px;
-    min-width: 200px;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 16px 20px 16px;
-    transition: 0.2s ease-in;
-    position: relative;
-    color: #F8EBC1;
+  background: #372d28;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 20px 16px;
+  transition: 0.2s ease-in;
+  position: relative;
+  color: #F8EBC1;
 }
 
 .tarjetas:hover {
-    box-shadow: 0 6px 10px rgba(0, 0 ,0 ,0.6);
-    transition: 0.2s ease-out;
-    transform: scale(1.01);
+  box-shadow: 0 6px 10px rgba(0, 0 ,0 ,0.6);
+  transition: 0.2s ease-out;
+  transform: scale(1.01);
 }
 
+/* ===== CONTENEDOR DE IMÁGENES DE PRODUCTO ===== */
 .img-container {
-    position: relative;
-    width: 100%;
-    height: 170px;
-    margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  height: 170px;
+  margin-bottom: 16px;
 }
 
 .img-container img {
-    position: absolute;
-    width: 100%;
-
-    height: 100%;
- min-height: 100px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #fff;
-    transition: opacity 0.4s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  transition: opacity 0.4s;
 }
 
 .img-container img:first-child {
-    z-index: 1;
+  z-index: 1;
 }
 
 .tarjetas:hover .img-container img:first-child {
-    opacity: 0;
+  opacity: 0;
 }
 
+/* ===== TÍTULOS Y PRECIOS DE PRODUCTO ===== */
+/* Título del producto en la tarjeta */
 .tarjetas h1 {
-    font-size: 15px;
-    color: #D9B26E;
-    margin-bottom: 6px;
-    text-align: center;
-    cursor: default;
+  font-size: 15px;
+  color: #D9B26E;
+  margin-bottom: 6px;
+  text-align: center;
+  cursor: default;
 }
 
+/* Precio del producto en la tarjeta */
 .tarjetas h2 {
-    font-size: 16px;
-    color: #9C563D;
-    margin-bottom: 6px;
-    text-align: center;
-    cursor: default;
+  font-size: 16px;
+  color: #9C563D;
+  margin-bottom: 6px;
+  text-align: center;
+  cursor: default;
 }
 
+/* Descripción del producto en la tarjeta */
 .tarjetas p {
-    color: #F8EBC1;
-    font-size: 13px;
-    margin-bottom: 6px;
-    text-align: center;
-    font-weight: bold;
-    cursor: default;
+  color: #F8EBC1;
+  font-size: 13px;
+  margin-bottom: 6px;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
 }
 
+/* Botón para agregar al carrito en la tarjeta de producto */
 .btn-carrito {
-    background: #9C563D;
-    color: #F8EBC1;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 0;
-    font-size: 14px;
-    margin-top: auto;
-    cursor: pointer;
-    transition: background 0.2s;
-    width: 90%;
-    font-weight: bold;
-    letter-spacing: 1px;
+  background: #9C563D;
+  color: #F8EBC1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 0;
+  font-size: 14px;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 90%;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* Efecto hover en el botón de agregar al carrito */
 .btn-carrito:hover {
-    background: #D9B26E;
-    color: #3D322C;
+  background: #D9B26E;
+  color: #3D322C;
 }
 
+/* Mensaje de no resultados encontrados */
 .no-result {
-    color: #ffe9b0;
-    font-size: 40px;
-    font-weight: bold;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 60vh;
+  color: #ffe9b0;
+  font-size: 40px;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 60vh;
 }
 
+/* Botón de menú hamburguesa (icono) */
 .menu-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition: background 0.2s, transform 0.2s;
-    padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s;
+  padding: 0;
 }
 
+/* Imagen dentro del botón de menú */
 .menu-btn img {
-    width: 32px;
-    height: 32px;
-    filter: brightness(0) invert(0.9);
-    transition: filter 0.2s, transform 0.2s;
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(0.9);
+  transition: filter 0.2s, transform 0.2s;
 }
 
+/* Efecto hover en el botón de menú */
 .menu-btn:hover {
-    background: rgba(217, 178, 110, 0.1);
-    transform: scale(1.05);
+  background: rgba(217, 178, 110, 0.1);
+  transform: scale(1.05);
 }
 
+/* Efecto activo en el botón de menú */
 .menu-btn:active {
-    background: none;
-    transform: scale(1);
+  background: none;
+  transform: scale(1);
 }
 
+/* Menú lateral desplegable (drawer) */
 .menu-drawer {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 80vw;
-    max-width: 340px;
-    height: 100vh;
-    background: #3D322C;
-    color: #F8EBC1;
-    box-shadow: 2px 0 16px rgba(0,0,0,0.25);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 9999;
-    padding: 24px 18px;
-    overflow-y: auto;
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 80vw;
+  max-width: 340px;
+  height: 100vh;
+  background: #3D322C;
+  color: #F8EBC1;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.25);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 9999;
+  padding: 24px 18px;
+  overflow-y: auto;
 }
 
+/* Menú lateral abierto */
 .menu-drawer.open {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
+/* Lista de enlaces en el menú lateral */
 .menu-drawer ul {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0 0 0;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
 }
 
+/* Elementos de la lista del menú lateral */
 .menu-drawer ul li {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
+/* Enlaces del menú lateral */
 .menu-drawer a {
-    color: #D9B26E;
-    text-decoration: none;
-    font-size: 1.1em;
-    display: block;
-    padding: 8px 0;
-    border-bottom: 1px solid #654534;
+  color: #D9B26E;
+  text-decoration: none;
+  font-size: 1.1em;
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px solid #654534;
 }
 
+/* Efecto hover en enlaces del menú lateral */
 .menu-drawer a:hover {
-    background: #372d28;
-    color: #F8EBC1;
+  background: #372d28;
+  color: #F8EBC1;
 }
 
+/* Botón flotante para volver arriba */
 .btn-flotante {
   position: fixed;
   bottom: 8px;
@@ -386,18 +414,21 @@ main {
   text-decoration: none;
 }
 
+/* Efecto hover en el botón flotante */
 .btn-flotante:hover {
   background: rgba(217,178,110,0.18);
   color: #D9B26E;
   border: 2px solid #D9B26E;
 }
 
+/* Grupo de filtros (marca, color, precio, ordenar) */
 .filtro-grupo {
   margin-bottom: 28px;
   padding-bottom: 18px;
   border-bottom: 1px solid rgba(217,178,110,0.18);
 }
 
+/* Título de cada grupo de filtro */
 .filtro-titulo {
   position: relative;
   cursor: pointer;
@@ -411,17 +442,20 @@ main {
   transition: color 0.2s;
 }
 
+/* Flecha de despliegue en el título del filtro */
 .filtro-titulo::after {
-    content: "▼";
-    transform: rotate(-90deg);
-    font-size: 25px;
-    transition: transform 0.2s;
+  content: "▼";
+  transform: rotate(-90deg);
+  font-size: 25px;
+  transition: transform 0.2s;
 }
 
+/* Flecha hacia abajo cuando el filtro está abierto */
 .filtro-titulo.abierto::after {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
+/* Opciones de cada filtro (checkboxes, inputs) */
 .filtro-opciones {
   flex-direction: column;
   display: none;
@@ -429,16 +463,19 @@ main {
   margin-left: 8px;
 }
 
+/* Mostrar opciones cuando el filtro está abierto */
 .filtro-titulo.abierto + .filtro-opciones {
   display: flex;
 }
 
+/* Etiquetas de cada opción de filtro */
 .filtro-opciones label {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Checkbox de los filtros */
 .filtro-opciones input[type="checkbox"] {
   accent-color: #D9B26E;
   width: 20px;
@@ -450,6 +487,7 @@ main {
   box-shadow: 0 2px 6px rgba(217,178,110,0.08);
 }
 
+/* Inputs numéricos para rango de precio */
 .filtro-opciones input[type="number"] {
   width: 90px;
   max-width: 100%;
@@ -464,17 +502,20 @@ main {
   transition: border 0.2s;
 }
 
+/* Efecto focus en inputs numéricos */
 .filtro-opciones input[type="number"]:focus {
   border-color: #9C563D;
   box-shadow: 0 0 5px rgba(156, 86, 61, 0.5);
 }
 
+/* Contenedor del botón para limpiar filtros */
 .btn-limpiar-filtros {
   margin-bottom: 12px;
   display: flex;
   justify-content: center;
 }
 
+/* Botón para limpiar filtros */
 .btn-limpiar {
   background: #9C563D;
   color: #F8EBC1;
@@ -488,12 +529,14 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Efecto hover en el botón limpiar filtros */
 .btn-limpiar:hover {
   background: #8a4d35;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Menú desplegable de carrito y favoritos */
 .mini-carrito, .favorito {
   display: none;
   position: absolute;
@@ -518,117 +561,126 @@ main {
   transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+/* Mostrar menú de carrito al hacer hover o focus */
 .btn-carrito-header:hover .mini-carrito,
 .btn-carrito-header:focus-within .mini-carrito {
   display: flex;
 }
 
+/* Mostrar menú de favoritos al hacer hover o focus */
 .btn-carrito-header:hover .favorito,
 .btn-carrito-header:focus-within .favorito {
   display: flex;
 }
 
+/* Botón para vaciar carrito o favoritos */
 .btn-vaciar {
-    background: #D9B26E;
-    color: #3D322C;
-    border: none;
-    border-radius: 8px;
-    padding: 7px 18px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(217,178,110,0.10);
-    margin-left: auto;
-    margin-right: 0;
-    display: block;
+  background: #D9B26E;
+  color: #3D322C;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(217,178,110,0.10);
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
 }
 
+/* Efecto hover en el botón vaciar */
 .btn-vaciar:hover {
-    background: #9C563D;
-    color: #F8EBC1;
+  background: #9C563D;
+  color: #F8EBC1;
 }
 
+/* Ítems individuales en el carrito/favoritos */
 .item-carrito, .item-favorito {
-    background: rgba(255,255,255,0.04);
-    border-radius: 8px;
-    padding: 8px;
-    margin-bottom: 8px;
-    border: 1px solid rgba(217,178,110,0.2);
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(217,178,110,0.2);
 }
 
+/* Contenedor de cada producto en el carrito/favoritos */
 .carritoItem, .favoritoItem {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
 }
 
+/* Imagen del producto en el carrito/favoritos */
 .carritoItem .carrito-img-container, .favoritoItem .carrito-img-container {
-    width:100px;
-    height: 60px;
-   
-    margin-bottom: 0;
-    background-image: auto  auto;
-    
+  width:100px;
+  height: 60px;
+  margin-bottom: 0;
+  background-image: auto  auto;
 }
 
 .carritoItem .carrito-img-container img, .favoritoItem .carrito-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    margin-top: auto;
-    margin-bottom: auto;
-    border-radius: 6px;
-    background: #fff;
-    background-image: auto auto ;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 6px;
+  background: #fff;
+  background-image: auto auto ;
 }
 
-
-
+/* Título del producto en el carrito/favoritos */
 .carritoItem h1, .favoritoItem h1 {
-    font-size: 14px;
-    color: #D9B26E;
-    margin: 0;
-    flex: 1;
-    text-align: left;
+  font-size: 14px;
+  color: #D9B26E;
+  margin: 0;
+  flex: 1;
+  text-align: left;
 }
 
+/* Precio del producto en el carrito/favoritos */
 .carritoItem h2, .favoritoItem h2 {
-    font-size: 15px;
-    color: #9C563D;
-    margin: 0;
-    font-weight: bold;
+  font-size: 15px;
+  color: #9C563D;
+  margin: 0;
+  font-weight: bold;
 }
 
+/* Descripción del producto en el carrito/favoritos */
 .carritoItem p, .favoritoItem p {
-    font-size: 12px;
-    color: #F8EBC1;
-    margin: 0;
-    opacity: 0.8;
+  font-size: 12px;
+  color: #F8EBC1;
+  margin: 0;
+  opacity: 0.8;
 }
 
+/* Botón para eliminar producto del carrito/favoritos */
 .btnEliminar {
-    background: #9C563D;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    flex-shrink: 0;
+  background: #9C563D;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
 }
 
+/* Efecto hover en el botón eliminar */
 .btnEliminar:hover {
-    background: #8a4d35;
-    transform: scale(1.1);
+  background: #8a4d35;
+  transform: scale(1.1);
 }
 
+/* Botón de favorito (corazón) en las tarjetas */
 .btn-like {
   position: absolute;
   top: 8px;
@@ -647,16 +699,19 @@ main {
   padding: 0;
 }
 
+/* Efecto hover en el botón de favorito */
 .btn-like:hover {
   background: #ffe6ec;
   color: #e2557b;
 }
 
+/* Efecto activo en el botón de favorito */
 .btn-like:active {
   background: #e2557b;
   color: #fff;
 }
 
+/* Footer principal */
 .footer-nuevo {
   background: #372d28;
   color: #F8EBC1;
@@ -666,6 +721,7 @@ main {
   z-index: 100;
 }
 
+/* Grid del footer */
 .footer-grid {
   display: flex;
   flex-wrap: wrap;
@@ -676,29 +732,34 @@ main {
   padding: 0 24px;
 }
 
+/* Columnas del footer */
 .footer-col {
   flex: 1 1 180px;
   min-width: 180px;
 }
 
+/* Títulos de columnas del footer */
 .footer-col h3, .footer-col h4 {
   color: #D9B26E;
   margin-bottom: 12px;
   font-size: 1.2em;
 }
 
+/* Listas del footer */
 .footer-col ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Elementos de lista del footer */
 .footer-col ul li {
   margin-bottom: 8px;
   color: #F8EBC1;
   font-size: 1em;
 }
 
+/* Enlaces del footer */
 .footer-col ul li a {
   color: inherit;
   text-decoration: none;
@@ -708,31 +769,39 @@ main {
   display: inline-block;
 }
 
+/* Efecto hover en enlaces del footer */
 .footer-col ul li a:hover {
   color: #D9B26E;
   text-decoration: underline;
 }
 
+/* Párrafos del footer */
 .footer-col p {
   margin: 0 0 12px 0;
   color: #F8EBC1;
 }
 
+/* Iconos de redes sociales en el footer */
 .footer-social {
   display: flex;
   gap: 12px;
   margin-top: 8px;
 }
 
+/* Imagen de icono de red social */
 .footer-social img {
-  filter: brightness(1.1);
+  width: 24px;
+  height: 24px;
+  filter: invert();
   transition: filter 0.2s;
 }
 
+/* Efecto hover en iconos de redes sociales */
 .footer-social img:hover {
   filter: brightness(2) drop-shadow(0 0 4px #D9B26E);
 }
 
+/* Copyright del footer */
 .footer-copy {
   border-top: 1px solid #9C563D;
   text-align: center;
@@ -742,6 +811,7 @@ main {
   margin-top: 32px;
 }
 
+/* Botón para cerrar el menú lateral */
 .close-drawer {
   background: none;
   border: none;
@@ -755,7 +825,9 @@ main {
   line-height: 1;
 }
 
-/* Responsive */
+/* ===================== MEDIA QUERIES ===================== */
+
+/* Responsive para pantallas menores a 900px */
 @media (max-width: 900px) {
   .header {
     padding: 10px 15px;
@@ -766,47 +838,47 @@ main {
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .header-left {
     display: flex;
     align-items: center;
   }
-  
+
   .menu-btn {
     display: flex !important;
     padding: 8px;
     margin-left: -50px;
   }
-  
+
   .header-center {
     display: none;
   }
-  
+
   .header-right {
     gap: 10px;
   }
-  
+
   .btn-carrito-header {
     margin-left: 0;
   }
-  
+
   .main-flex {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .elementos {
     display: none !important;
   }
-  
+
   .contenedor {
     margin-left: 5%;
-    
     grid-template-columns: 1fr;
     gap: 18px;
   }
 }
 
+/* Responsive para pantallas menores a 656px */
 @media (max-width: 656px) {
   .contenedor {
     grid-template-columns: 1fr;
@@ -815,24 +887,25 @@ main {
   }
 }
 
+/* Responsive para pantallas mayores a 900px */
 @media (min-width: 901px) {
   .buscador-drawer {
     display: none !important;
   }
-  
+
   .menu-drawer {
     display: block !important;
   }
-  
+
   .menu-drawer .drawer-filtros,
   .menu-drawer .btn-limpiar-filtros {
     display: none !important;
   }
-  
+
   .menu-drawer ul {
     display: block;
   }
-  
+
   .elementos {
     position: fixed;
     left: 20px;
@@ -846,21 +919,22 @@ main {
   }
 }
 
+/* Responsive para menú lateral y filtros en pantallas menores a 900px */
 @media (max-width: 900px) {
   .menu-drawer {
     display: block !important;
   }
-  
+
   .menu-drawer.open {
     transform: translateX(0) !important;
   }
-  
+
   .buscador-drawer {
     display: flex;
     margin: 20px 0;
     width: 100%;
   }
-  
+
   .buscador-drawer input {
     flex: 1;
     background: transparent;
@@ -871,7 +945,7 @@ main {
     padding: 8px 12px;
     border-bottom: 1px solid #654534;
   }
-  
+
   .buscador-drawer button {
     background: none;
     color: #F8EBC1;
@@ -880,30 +954,31 @@ main {
     cursor: pointer;
     padding: 8px 12px;
   }
-  
+
   .drawer-filtros {
     margin-top: 20px;
   }
-  
+
   .drawer-filtros .filtro-grupo {
     margin-bottom: 20px;
   }
-  
+
   .drawer-filtros .filtro-titulo {
     font-size: 18px;
     margin-bottom: 10px;
   }
-  
+
   .drawer-filtros .filtro-opciones {
     margin-left: 15px;
   }
-  
+
   .drawer-filtros .filtro-opciones label {
     font-size: 14px;
     margin-bottom: 8px;
   }
 }
 
+/* Título de popups */
 .popup-titulo {
   font-size: 1.3em;
   font-weight: bold;
@@ -913,7 +988,9 @@ main {
   text-align: left;
 }
 
-/* SLIDER SIMPLE DE LOS ÚLTIMOS 4 PRODUCTOS */
+/* ===================== SLIDER SIMPLE ===================== */
+
+/* Contenedor principal del slider simple */
 .slider-simple {
   width: 100%;
   max-width: 1000px;
@@ -922,22 +999,30 @@ main {
   overflow-y: visible;
   padding-bottom: 10px;
 }
+
+/* Scrollbar horizontal del slider */
 .slider-simple::-webkit-scrollbar {
   height: 10px;
-  
 }
+
+/* Pulgar del scrollbar del slider */
 .slider-simple::-webkit-scrollbar-thumb {
   background: #D9B26E;
   border-radius: 6px;
 }
+
+/* Fondo del scrollbar del slider */
 .slider-simple::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* Contenedor interno de slides */
 .slider-simple-inner {
   display: flex;
   gap: 24px;
   width: max-content;
 }
+
 .slide-simple {
   background: #372d28;
   border-radius: 16px;
@@ -955,11 +1040,13 @@ main {
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   text-align: center;
 }
+
 .slide-simple:hover {
   box-shadow: 0 6px 10px rgba(0, 0 ,0 ,0.6);
   transition: 0.2s ease-out;
   transform: scale(1.01);
 }
+
 .slide-simple .img-container {
   position: relative;
   width: 100%;
@@ -972,6 +1059,7 @@ main {
   justify-content: center;
   overflow: hidden;
 }
+
 .slide-simple .img-container img {
   position: static;
   width: 90%;
@@ -982,6 +1070,7 @@ main {
   transition: opacity 0.4s;
   display: block;
 }
+
 .slide-simple h3 {
   font-size: 15px;
   color: #D9B26E;
@@ -989,6 +1078,7 @@ main {
   text-align: center;
   cursor: default;
 }
+
 .slide-simple .precio {
   font-size: 16px;
   color: #9C563D;
@@ -997,6 +1087,7 @@ main {
   cursor: default;
   font-weight: bold;
 }
+
 .slide-simple p {
   color: #F8EBC1;
   font-size: 13px;
@@ -1005,6 +1096,7 @@ main {
   font-weight: bold;
   cursor: default;
 }
+
 .slide-simple .btn-carrito {
   background: #9C563D;
   color: #F8EBC1;
@@ -1019,10 +1111,12 @@ main {
   font-weight: bold;
   letter-spacing: 1px;
 }
+
 .slide-simple .btn-carrito:hover {
   background: #D9B26E;
   color: #3D322C;
 }
+
 .slide-simple .btn-like {
   position: absolute;
   top: 8px;
@@ -1040,14 +1134,17 @@ main {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   padding: 0;
 }
+
 .slide-simple .btn-like:hover {
   background: #ffe6ec;
   color: #e2557b;
 }
+
 .slide-simple .btn-like:active {
   background: #e2557b;
   color: #fff;
 }
+
 @media (max-width: 700px) {
   .slide-simple {
     min-width: 180px;
