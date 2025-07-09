@@ -1,3 +1,4 @@
+//Arrays de bolsas
 export const bolsas = [
     {
         codigo: 52,

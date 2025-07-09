@@ -1,3 +1,4 @@
+//Arrays de zapatillas
 export const productos = [
     {
         codigo: 1,
